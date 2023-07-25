@@ -10,6 +10,19 @@ class HelloScreenView extends StatefulWidget{
 }
 
 class _HelloScreenViewState extends State<HelloScreenView>  {
+
+  void navigateToHome(){
+      Future.delayed(Duration(seconds: 3),
+      () {
+        Navigator.popAndPushNamed(context, 'HomePageView');
+      },);
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    navigateToHome();
+  }
 @override
   Widget build(BuildContext context) {
     return SafeArea

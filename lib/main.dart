@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:iti_project/firebase_options.dart';
 import 'package:iti_project/screens/helloScreen/helloScreenView.dart';
+import 'package:iti_project/screens/homeScreen/homepageView.dart';
 
 
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/':(context) => HelloScreenView(),
+        'HomePageView':(context) => HomePageView()
 
       },
      theme: ThemeData(brightness: Brightness.dark,),
