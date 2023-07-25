@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/':(context) => HelloScreenView(),
-        'HomePageView':(context) =>   RegisterView()
+        'RegisterPageView':(context) =>   RegisterView()
 
       },
      theme: ThemeData(brightness: Brightness.dark,),

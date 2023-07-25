@@ -14,7 +14,7 @@ class _HelloScreenViewState extends State<HelloScreenView>  {
   void navigateToHome(){
       Future.delayed(Duration(seconds: 3),
       () {
-        Navigator.popAndPushNamed(context, 'HomePageView');
+        Navigator.popAndPushNamed(context, 'RegisterPageView');
       },);
   }
   @override
