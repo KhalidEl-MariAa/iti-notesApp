@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'package:iti_project/firebase_options.dart';
+import 'package:iti_project/screens/helloScreen/helloScreenView.dart';
 
 
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       
      
-      home: ,
+      home:HelloScreenView() ,
     );
   }
 }
