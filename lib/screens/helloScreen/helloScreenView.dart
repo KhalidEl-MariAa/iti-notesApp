@@ -10,7 +10,7 @@ class HelloScreenView extends StatefulWidget{
 }
 
 class _HelloScreenViewState extends State<HelloScreenView>  {
-  @override
+@override
   Widget build(BuildContext context) {
     return SafeArea
     (child:
@@ -36,3 +36,4 @@ body: Center(child: Column(
      ));
   }
 }
+

@@ -23,9 +23,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      
+      routes: {
+        '/':(context) => HelloScreenView(),
+
+      },
      theme: ThemeData(brightness: Brightness.dark,),
-      home:HelloScreenView() ,
+      initialRoute:'/' ,
     );
   }
 }
