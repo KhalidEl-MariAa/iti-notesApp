@@ -14,7 +14,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   ); 
-    runApp(MyApp());
+    runApp(const MyApp());
   
 }
 
@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/':(context) => HelloScreenView(),
-        'RegisterPageView':(context) =>   RegisterView()
+        '/':(context) => const HelloScreenView(),
+        'RegisterPageView':(context) =>  const RegisterView()
 
       },
      theme: ThemeData(brightness: Brightness.dark,),

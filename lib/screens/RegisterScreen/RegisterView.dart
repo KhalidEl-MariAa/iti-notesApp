@@ -20,7 +20,7 @@ class RegisterView extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text('Welcome to our Registeration :',style: GoogleFonts.anekGurmukhi().copyWith(fontSize: 17),)),
               ),
-              SizedBox(height: 25,),
+              const SizedBox(height: 25,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextFormField(
@@ -28,12 +28,12 @@ class RegisterView extends StatelessWidget {
                     hintText: 'Email',
                     hintStyle: GoogleFonts.anekGurmukhi(),
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
-                    prefixIcon: Icon(Icons.email),
+                    prefixIcon: const Icon(Icons.email),
                     
                   ),
                 ),
               ),
-              SizedBox(height: 25,),
+              const SizedBox(height: 25,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextFormField(
@@ -41,12 +41,12 @@ class RegisterView extends StatelessWidget {
                     hintText: 'Password',
                     hintStyle: GoogleFonts.anekGurmukhi(),
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
-                    prefixIcon: Icon(Icons.lock),
+                    prefixIcon: const Icon(Icons.lock),
                     
                   ),
                 ),
               ),
-              SizedBox(height: 25,),
+             const  SizedBox(height: 25,),
 
               ElevatedButton(
                 
@@ -54,11 +54,11 @@ class RegisterView extends StatelessWidget {
 
               },
               style: ElevatedButton.styleFrom(
-                fixedSize: Size(250, 50),
-                backgroundColor: Color.fromARGB(255, 8, 8, 8)),
+                fixedSize: const Size(250, 50),
+                backgroundColor: const Color.fromARGB(255, 8, 8, 8)),
                 
                child: Text('Register',style: GoogleFonts.anekGurmukhi(),)),
-               SizedBox(height: 10,),
+              const  SizedBox(height: 10,),
                Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
