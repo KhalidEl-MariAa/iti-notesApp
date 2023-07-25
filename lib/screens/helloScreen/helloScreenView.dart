@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HelloScreenView extends StatefulWidget{
   const HelloScreenView({super.key});
@@ -26,7 +27,7 @@ body: Center(child: Column(
       size: 60,
       ),
       SizedBox(height: 30,),
-      Text('Welcome..',)
+      Text('Welcome..',style: GoogleFonts.anekGurmukhi().copyWith(fontSize: 20),)
 
   ],
 
