@@ -2,8 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'package:iti_project/firebase_options.dart';
+import 'package:iti_project/screens/RegisterScreen/RegisterView.dart';
 import 'package:iti_project/screens/helloScreen/helloScreenView.dart';
-import 'package:iti_project/screens/homeScreen/homepageView.dart';
+
 
 
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/':(context) => HelloScreenView(),
-        'HomePageView':(context) => HomePageView()
+        'HomePageView':(context) =>   RegisterView()
 
       },
      theme: ThemeData(brightness: Brightness.dark,),
