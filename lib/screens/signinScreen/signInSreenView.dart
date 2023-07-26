@@ -30,7 +30,7 @@ class _SignInViewState extends State<SignInView> {
                   
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text('Welcome to our Registeration :',style: GoogleFonts.anekGurmukhi().copyWith(fontSize: 17),)),
+                    child: Text('Welcome again :',style: GoogleFonts.anekGurmukhi().copyWith(fontSize: 17),)),
                 ),
                 const SizedBox(height: 25,),
                 Padding(
@@ -97,16 +97,16 @@ class _SignInViewState extends State<SignInView> {
                   fixedSize: const Size(250, 50),
                   backgroundColor: const Color.fromARGB(255, 8, 8, 8)),
                   
-                 child: Text('Register',style: GoogleFonts.anekGurmukhi(),)),
+                 child: Text('Sign In ',style: GoogleFonts.anekGurmukhi(),)),
                 const  SizedBox(height: 10,),
                  Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Already have an account?..',style: GoogleFonts.anekGurmukhi(),),
-                    GestureDetector(
-                      onTap: (){},
-                      child: Text('Sign in',style: GoogleFonts.anekGurmukhi().copyWith(color: Colors.amber)),)
-        
+                    Text('Sign In with  ',style: GoogleFonts.anekGurmukhi().copyWith(color: Colors.amber),),
+                    CircleAvatar()
+                    ,SizedBox(width: 8,),
+                    CircleAvatar()
+                    
                  ],)
         
                 
