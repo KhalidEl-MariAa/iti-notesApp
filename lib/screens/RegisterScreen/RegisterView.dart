@@ -105,7 +105,9 @@ class _RegisterViewState extends State<RegisterView> {
                   children: [
                     Text('Already have an account?..',style: GoogleFonts.anekGurmukhi(),),
                     GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.pushNamed(context, 'SignInView');
+                      },
                       child: Text('Sign in',style: GoogleFonts.anekGurmukhi().copyWith(color: Colors.amber)),)
         
                  ],)
