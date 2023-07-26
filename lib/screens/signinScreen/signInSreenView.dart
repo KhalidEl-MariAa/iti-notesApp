@@ -114,7 +114,7 @@ class _SignInViewState extends State<SignInView> {
                       ),
                     )
                     ,const SizedBox(width: 8,),
-                    CircleAvatar( 
+                   const CircleAvatar( 
                     
                       backgroundColor: Colors.white,
                         radius: 25,
