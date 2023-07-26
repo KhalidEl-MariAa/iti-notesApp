@@ -102,10 +102,24 @@ class _SignInViewState extends State<SignInView> {
                  Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Sign In with  ',style: GoogleFonts.anekGurmukhi().copyWith(color: Colors.amber),),
-                    CircleAvatar()
-                    ,SizedBox(width: 8,),
-                    CircleAvatar()
+                    
+                    GestureDetector(
+                      onTap: () {
+                        
+                      },
+                      child: const CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 25,
+                        child: Image(image: AssetImage('lib/assets/images/google logo.png')),
+                      ),
+                    )
+                    ,const SizedBox(width: 8,),
+                    CircleAvatar( 
+                    
+                      backgroundColor: Colors.white,
+                        radius: 25,
+                        child: Image(image: AssetImage('lib/assets/images/truefaceLogo.png'),)                  
+                      )
                     
                  ],)
         
