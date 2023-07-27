@@ -114,12 +114,17 @@ class _SignInViewState extends State<SignInView> {
                       ),
                     )
                     ,const SizedBox(width: 8,),
-                   const CircleAvatar( 
-                    
-                      backgroundColor: Colors.white,
-                        radius: 25,
-                        child: Image(image: AssetImage('lib/assets/images/truefaceLogo.png'),)                  
-                      )
+                    GestureDetector(
+                      onTap: () {
+                        
+                      },
+                      child: CircleAvatar( 
+                      
+                        backgroundColor: Colors.white,
+                          radius: 25,
+                          child: Image(image: AssetImage('lib/assets/images/truefaceLogo.png'),)                  
+                        ),
+                    )
                     
                  ],)
         
