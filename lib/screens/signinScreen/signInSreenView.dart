@@ -118,7 +118,7 @@ class _SignInViewState extends State<SignInView> {
                       onTap: () {
                         
                       },
-                      child: CircleAvatar( 
+                      child: const CircleAvatar( 
                       
                         backgroundColor: Colors.white,
                           radius: 25,
