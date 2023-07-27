@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({super.key});
@@ -10,6 +12,28 @@ class SignInView extends StatefulWidget {
 }
 
 class _SignInViewState extends State<SignInView> {
+  
+
+Future<UserCredential> signInWithGoogle() async {
+  // Trigger the authentication flow
+  final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+  // Obtain the auth details from the request
+  final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+  // Create a new credential
+  final credential = GoogleAuthProvider.credential(
+    accessToken: googleAuth?.accessToken,
+    idToken: googleAuth?.idToken,
+  );
+
+  // Once signed in, return the UserCredential
+  return await FirebaseAuth.instance.signInWithCredential(credential);
+}
+
+
+
+
   @override
   Widget build(BuildContext context) {
     String? email;
@@ -104,7 +128,8 @@ class _SignInViewState extends State<SignInView> {
                   children: [
                     
                     GestureDetector(
-                      onTap: () {
+                      onTap: () async{
+                        await signInWithGoogle();
                         
                       },
                       child: const CircleAvatar(
@@ -114,17 +139,7 @@ class _SignInViewState extends State<SignInView> {
                       ),
                     )
                     ,const SizedBox(width: 8,),
-                    GestureDetector(
-                      onTap: () {
-                        
-                      },
-                      child: const CircleAvatar( 
-                      
-                        backgroundColor: Colors.white,
-                          radius: 25,
-                          child: Image(image: AssetImage('lib/assets/images/truefaceLogo.png'),)                  
-                        ),
-                    )
+                   
                     
                  ],)
         
