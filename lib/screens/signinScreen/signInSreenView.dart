@@ -12,6 +12,9 @@ class SignInView extends StatefulWidget {
 }
 
 class _SignInViewState extends State<SignInView> {
+  bool notseen=true;
+  TextEditingController passcont =  TextEditingController();
+  
   
 
 Future<UserCredential> signInWithGoogle() async {
@@ -84,6 +87,8 @@ Future<UserCredential> signInWithGoogle() async {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: TextFormField(
+                    controller: passcont,
+                    obscureText: notseen,
                     // ignore: body_might_complete_normally_nullable
                     validator: (value) {
                       if(value!.isEmpty){
@@ -94,6 +99,17 @@ Future<UserCredential> signInWithGoogle() async {
                       password=value;
                     },
                     decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        onPressed: (){
+                          
+                          
+                          setState(() {
+                            notseen=!notseen;
+                          });
+                            
+                          
+                        },
+                       icon: notseen? const Icon(Icons.remove_red_eye) :const Icon (Icons.hide_source )),
                       hintText: 'Password',
                       hintStyle: GoogleFonts.anekGurmukhi(),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
