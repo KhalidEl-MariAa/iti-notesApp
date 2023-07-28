@@ -158,25 +158,29 @@ Future<UserCredential> signInWithGoogle() async {
                   
                  child: Text('Sign In ',style: GoogleFonts.anekGurmukhi(),)),
                 const  SizedBox(height: 10,),
-                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    
-                    GestureDetector(
-                      onTap: () async{
+                  ElevatedButton(
+                    onPressed:()async {
+                      try {
                         await signInWithGoogle();
-                        
-                      },
-                      child: const CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 25,
-                        child: Image(image: AssetImage('lib/assets/images/google logo.png')),
-                      ),
-                    )
-                    ,const SizedBox(width: 8,),
+                      } catch (e) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('There was an error')));
+                      }
+                    } ,
+                    style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(250, 50),
+                  backgroundColor: const Color.fromARGB(255, 8, 8, 8)),
+
                    
-                    
-                 ],)
+                   child: Row(
+                     children: [
+                       Image(image: AssetImage('lib/assets/images/google logo.png'),height: 40,width: 45,),
+                       SizedBox(width: 6,),
+                       Text('Connect with google',style: GoogleFonts.anekGurmukhi())
+
+                     ],
+                   ),
+                 )
+                 ,const SizedBox(width: 8,)
         
                 
               ],)
