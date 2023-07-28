@@ -11,6 +11,9 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
+  bool notseen=true;
+  TextEditingController passcont =  TextEditingController();
+  
   String? email;
   String? password;
  final GlobalKey<FormState> _globalKey =  GlobalKey();
@@ -37,6 +40,7 @@ class _RegisterViewState extends State<RegisterView> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: TextFormField(
+                    
                     // ignore: body_might_complete_normally_nullable
                     validator: (value) {
                       if (value!.isEmpty){
@@ -61,6 +65,7 @@ class _RegisterViewState extends State<RegisterView> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: TextFormField(
+                    obscureText: notseen,
                     // ignore: body_might_complete_normally_nullable
                     validator: (value) {
                       if(value!.isEmpty){
@@ -70,7 +75,19 @@ class _RegisterViewState extends State<RegisterView> {
                     onChanged: (value) {
                       password=value;
                     },
+                    controller: passcont,
                     decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        onPressed: (){
+                          
+                          
+                          setState(() {
+                            notseen=!notseen;
+                          });
+                            
+                          
+                        },
+                       icon: notseen? const Icon(Icons.remove_red_eye) :const Icon (Icons.hide_source )),
                       hintText: 'Password',
                       hintStyle: GoogleFonts.anekGurmukhi(),
                       border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
