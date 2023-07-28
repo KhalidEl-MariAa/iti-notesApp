@@ -88,8 +88,27 @@ class _RegisterViewState extends State<RegisterView> {
                       
                         
                       
-                    await FirebaseAuth.instance.createUserWithEmailAndPassword(email:email! , password: password!);
-                    
+                    try {
+                      await FirebaseAuth.instance.createUserWithEmailAndPassword(email:email! , password: password!);
+                    }
+                    on FirebaseAuthException catch (ex){
+                      if (ex.code=='weak-password') {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Weak password..Try stronger one ')));
+                        }
+                        else if (ex.code=='email-already-in-use') {
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Email already used in another account..Try another one ')));
+                          
+                        }
+                        else{
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('There is a problem with your input data')));
+                        }
+
+                        
+                        
+                    }
+                    catch(e){
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('There was an error (Not in your pass or email) ,Try Again ')));
+                    }
                     }
                 
         
