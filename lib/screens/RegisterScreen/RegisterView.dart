@@ -16,6 +16,8 @@ class _RegisterViewState extends State<RegisterView> {
   
   String? email;
   String? password;
+  String? firstname;
+  String? secondname;
  final GlobalKey<FormState> _globalKey =  GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,69 @@ class _RegisterViewState extends State<RegisterView> {
                     child: Text('Welcome to our Registeration :',style: GoogleFonts.anekGurmukhi().copyWith(fontSize: 17),)),
                 ),
                 const SizedBox(height: 25,),
+                  Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 175,
+                        child: TextFormField(
+                          
+                          // ignore: body_might_complete_normally_nullable
+                          validator: (value) {
+                            if (value!.isEmpty){
+                              return "can’t take null value ";
+                            }
+                            
+                            
+                          },
+                          onChanged: (value){
+                            firstname=value;
+                          },
+                          
+                          decoration: InputDecoration(
+                            
+                            hintText: 'first name',
+                            hintStyle: GoogleFonts.anekGurmukhi(),
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
+                            prefixIcon: const Icon(Icons.person),
+                            
+                          ),
+                        ),
+                      ),
+                      
+                      SizedBox(
+                        width: 175,
+                        child: TextFormField(
+                          
+                          // ignore: body_might_complete_normally_nullable
+                          validator: (value) {
+                            if (value!.isEmpty){
+                              return "can’t take null value ";
+                            }
+                            
+                            
+                          },
+                          onChanged: (value){
+                            secondname=value;
+                          },
+                          
+                          decoration: InputDecoration(
+                            
+                            hintText: 'Last name',
+                            hintStyle: GoogleFonts.anekGurmukhi(),
+                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
+                            prefixIcon: const Icon(Icons.person),
+                            
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 25,),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: TextFormField(
