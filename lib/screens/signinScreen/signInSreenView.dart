@@ -111,8 +111,26 @@ Future<UserCredential> signInWithGoogle() async {
                       
                         
                       
-                    await FirebaseAuth.instance.createUserWithEmailAndPassword(email:email! , password: password!);
-                    
+                   try{ await FirebaseAuth.instance.createUserWithEmailAndPassword(email:email! , password: password!);
+                   }
+                      on FirebaseAuthException catch (ex){
+                      if (ex.code=='user-not-found') {
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('No User found for this Email..Try register with it')));
+                        }
+                        else if (ex.code=='wrong-password') {
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Wrong password ')));
+                          
+                        }
+                        else{
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('There was an error')));
+                        }
+
+                        
+                        
+                    }
+                    catch(e){
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('There was an error (Not in your pass or email) ,Try Again ')));
+                    }
                     }
                 
         
