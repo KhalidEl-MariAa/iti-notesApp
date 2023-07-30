@@ -1,8 +1,9 @@
-
+  
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:iti_project/utils/firebaseNames.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -173,7 +174,13 @@ class _RegisterViewState extends State<RegisterView> {
                       
                     try {
                       await FirebaseAuth.instance.createUserWithEmailAndPassword(email:email! , password: password!);
-                      await FirebaseFirestore.instance.collection('users').add({''});
+                        await FirebaseFirestore.instance.collection(FirebaseNames.collectionNamme).add(
+                          {
+                            FirebaseNames.emailfield:email,
+                            FirebaseNames.passfiels:password,
+                            FirebaseNames.firstNameField:firstname,
+                            FirebaseNames.lastNameField:secondname
+                          });
                     }
                     on FirebaseAuthException catch (ex){
                       if (ex.code=='weak-password') {

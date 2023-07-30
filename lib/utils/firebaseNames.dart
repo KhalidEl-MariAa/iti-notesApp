@@ -1,10 +1,10 @@
 abstract class FirebaseNames{
 
-final String collectionNamme='users';
-final String lastNameField='LastName';
-final String firstNameField='firstName';
-final String passfiels='pass';
-final String emailfield='email';
+static const String collectionNamme='users';
+static const String lastNameField='LastName';
+static const String firstNameField='firstName';
+static const String passfiels='pass';
+static const String emailfield='email';
 
 
 }
