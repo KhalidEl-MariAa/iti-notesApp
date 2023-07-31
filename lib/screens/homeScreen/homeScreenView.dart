@@ -10,6 +10,16 @@ class HomeScreenView extends StatefulWidget {
 class _HomeScreenViewState extends State<HomeScreenView> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        leading: const Icon(Icons.menu),
+        actions: [IconButton(
+          iconSize: 30,
+
+          onPressed: () {
+          
+        }, icon:const Icon(Icons.person))],
+      ),
+    );
   }
 }
