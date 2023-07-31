@@ -14,6 +14,7 @@ class SignInView extends StatefulWidget {
 class _SignInViewState extends State<SignInView> {
   bool notseen=true;
   TextEditingController passcont =  TextEditingController();
+  TextEditingController emailcont =  TextEditingController();
   
   
 
@@ -63,6 +64,8 @@ Future<UserCredential> signInWithGoogle() async {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: TextFormField(
+                    controller: emailcont,
+                    
                     // ignore: body_might_complete_normally_nullable
                     validator: (value) {
                       if (value!.isEmpty){
@@ -129,6 +132,7 @@ Future<UserCredential> signInWithGoogle() async {
                       
                    try{
                      await FirebaseAuth.instance.signInWithEmailAndPassword(email:email! , password: password!);
+                     Navigator.pushNamed(context, 'HomeScreenView');
                    }
                    on FirebaseAuthException catch (ex){
                       if (ex.code=='user-not-found') {
@@ -139,7 +143,7 @@ Future<UserCredential> signInWithGoogle() async {
                           
                         }
                         else{
-                          ScaffoldMessenger.of(context).showSnackBar( SnackBar(content: Text('There was an error')));
+                          ScaffoldMessenger.of(context).showSnackBar( SnackBar(content: Text('$ex')));
                         }
 
                         

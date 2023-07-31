@@ -15,7 +15,9 @@ class RegisterView extends StatefulWidget {
 class _RegisterViewState extends State<RegisterView> {
   bool notseen=true;
   TextEditingController passcont =  TextEditingController();
-  
+  TextEditingController emailcont =  TextEditingController();
+  TextEditingController firstnamecont=  TextEditingController();
+  TextEditingController secondnamecont =  TextEditingController();
   String? email;
   String? password;
   String? firstname;
@@ -53,6 +55,7 @@ class _RegisterViewState extends State<RegisterView> {
                           SizedBox(
                             width: 175,
                             child: TextFormField(
+                              controller: firstnamecont,
                               
                               // ignore: body_might_complete_normally_nullable
                               validator: (value) {
@@ -80,6 +83,7 @@ class _RegisterViewState extends State<RegisterView> {
                           SizedBox(
                             width: 175,
                             child: TextFormField(
+                              controller: secondnamecont,
                               
                               // ignore: body_might_complete_normally_nullable
                               validator: (value) {
@@ -110,6 +114,7 @@ class _RegisterViewState extends State<RegisterView> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: TextFormField(
+                        controller: emailcont,
                         
                         // ignore: body_might_complete_normally_nullable
                         validator: (value) {
@@ -184,6 +189,8 @@ class _RegisterViewState extends State<RegisterView> {
                                 FirebaseNames.firstNameField:firstname,
                                 FirebaseNames.lastNameField:secondname
                               });
+
+                              Navigator.pushNamed(context, 'HomeScreenView');
                         }
                         on FirebaseAuthException catch (ex){
                           if (ex.code=='weak-password') {
