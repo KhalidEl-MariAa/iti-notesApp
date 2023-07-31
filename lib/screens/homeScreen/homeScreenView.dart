@@ -41,6 +41,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
        
         
         bottomNavigationBar: BottomNavigationBar(
+          selectedLabelStyle:GoogleFonts.anekGurmukhi() ,
           enableFeedback: true,
           showUnselectedLabels: false,
           onTap: (value) {
