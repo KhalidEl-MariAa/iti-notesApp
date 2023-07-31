@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:iti_project/firebase_options.dart';
 import 'package:iti_project/screens/RegisterScreen/RegisterView.dart';
 import 'package:iti_project/screens/helloScreen/helloScreenView.dart';
+import 'package:iti_project/screens/homeScreen/homeScreenView.dart';
 import 'package:iti_project/screens/signinScreen/signInSreenView.dart';
 
 
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/':(context) => const HelloScreenView(),
         'RegisterPageView':(context) =>  const RegisterView(),
-        'SignInView':(context) => const SignInView()
+        'SignInView':(context) => const SignInView(),
+        'HomeScreenView':(context) => const HomeScreenView()
       },
      theme: ThemeData(brightness: Brightness.dark,),
       initialRoute:'/' ,
