@@ -8,17 +8,55 @@ class HomeScreenView extends StatefulWidget {
 }
 
 class _HomeScreenViewState extends State<HomeScreenView> {
+  int currentIndex=0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const Icon(Icons.menu),
-        actions: [IconButton(
-          iconSize: 30,
-
-          onPressed: () {
+    return SafeArea(
+      child: Scaffold(
+        floatingActionButton:currentIndex==0? 
+        FloatingActionButton(
+          splashColor: Colors.amber,
+          onPressed: (){},// Notes part
+          child: Icon(Icons.add),):
+          FloatingActionButton(
+            onPressed: (){}, // tasks Part
+            child: Icon(Icons.add)
+            ),
+        appBar: AppBar(
           
-        }, icon:const Icon(Icons.person))],
+          backgroundColor: Colors.black,
+          leading: const Icon(Icons.menu),
+          actions: [IconButton(
+            iconSize: 30,
+    
+            onPressed: () {
+            
+          }, icon:const Icon(Icons.person))],
+        ),
+       
+        
+        bottomNavigationBar: BottomNavigationBar(
+          enableFeedback: true,
+          showUnselectedLabels: false,
+          onTap: (value) {
+            setState(() {
+              currentIndex=value;
+            });
+            
+          },
+          backgroundColor: Colors.black,
+          currentIndex: currentIndex,
+          items:const [
+            BottomNavigationBarItem(
+              label:'Notes',
+              icon: Icon(Icons.note_alt_sharp)),
+    
+    
+            BottomNavigationBarItem(
+
+              label: 'Tasks',
+              icon: Icon(Icons.task_rounded))
+          ]),
       ),
     );
   }
