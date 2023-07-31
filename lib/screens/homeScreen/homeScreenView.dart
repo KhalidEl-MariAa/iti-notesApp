@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreenView extends StatefulWidget {
   const HomeScreenView({super.key});
@@ -9,6 +10,7 @@ class HomeScreenView extends StatefulWidget {
 
 class _HomeScreenViewState extends State<HomeScreenView> {
   int currentIndex=0;
+  
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,7 +25,10 @@ class _HomeScreenViewState extends State<HomeScreenView> {
             child: const Icon(Icons.add)
             ),
         appBar: AppBar(
-          
+          title: currentIndex==0?
+          Text('Notes',style: GoogleFonts.anekGurmukhi().copyWith(fontWeight: FontWeight.bold),):
+           Text('Tasks',style: GoogleFonts.anekGurmukhi().copyWith(fontWeight: FontWeight.bold)),
+          centerTitle: true,
           backgroundColor: Colors.black,
           leading: const Icon(Icons.menu),
           actions: [IconButton(
