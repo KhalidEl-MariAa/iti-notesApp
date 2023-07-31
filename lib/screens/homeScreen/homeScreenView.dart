@@ -17,10 +17,10 @@ class _HomeScreenViewState extends State<HomeScreenView> {
         FloatingActionButton(
           splashColor: Colors.amber,
           onPressed: (){},// Notes part
-          child: Icon(Icons.add),):
+          child: const Icon(Icons.add),):
           FloatingActionButton(
             onPressed: (){}, // tasks Part
-            child: Icon(Icons.add)
+            child: const Icon(Icons.add)
             ),
         appBar: AppBar(
           
