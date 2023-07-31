@@ -163,7 +163,7 @@ Future<UserCredential> signInWithGoogle() async {
                       try {
                         await signInWithGoogle();
                       } catch (e) {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('There was an error')));
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('There was an error')));
                       }
                     } ,
                     style: ElevatedButton.styleFrom(
@@ -173,8 +173,8 @@ Future<UserCredential> signInWithGoogle() async {
                    
                    child: Row(
                      children: [
-                       Image(image: AssetImage('lib/assets/images/google logo.png'),height: 40,width: 45,),
-                       SizedBox(width: 6,),
+                      const Image(image: AssetImage('lib/assets/images/google logo.png'),height: 40,width: 45,),
+                      const  SizedBox(width: 6,),
                        Text('Connect with google',style: GoogleFonts.anekGurmukhi())
 
                      ],
