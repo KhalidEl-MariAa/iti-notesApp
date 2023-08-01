@@ -26,7 +26,7 @@ List views=[CreateNote(),CreateTask()];
         bottomNavigationBar: BottomNavigationBar(
           selectedLabelStyle:GoogleFonts.anekGurmukhi() ,
           enableFeedback: true,
-          showUnselectedLabels: false,
+          
           onTap: (value) {
             setState(() {
               currentIndex=value;
@@ -37,14 +37,14 @@ List views=[CreateNote(),CreateTask()];
           currentIndex: currentIndex,
           items:const [
             BottomNavigationBarItem(
-              label:'Notes',
-              icon: Icon(Icons.note_alt_sharp)),
+              label:'Add Note',
+              icon: Icon(Icons.add_comment_outlined)),
     
     
             BottomNavigationBarItem(
 
-              label: 'Tasks',
-              icon: Icon(Icons.task_rounded))
+              label: 'Add Task',
+              icon: Icon(Icons.add_task))
           ]),
 
       
