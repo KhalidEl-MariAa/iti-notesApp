@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:iti_project/utils/widgets/create%20widgets/createNote.dart';
+import 'package:iti_project/utils/widgets/create%20widgets/createTask.dart';
 
 
 class CreateNoteandTasksScreen extends StatefulWidget {
@@ -10,12 +12,9 @@ class CreateNoteandTasksScreen extends StatefulWidget {
 }
 
 class _CreateNoteScreenState extends State<CreateNoteandTasksScreen> {
-TextEditingController titCont= TextEditingController();
-String? title;
-TextEditingController contentCont= TextEditingController();
-String? content;
-int currentIndex = 0;
 
+int currentIndex =0;
+List views=[CreateNote(),CreateTask()];
 
 
   @override
@@ -23,7 +22,7 @@ int currentIndex = 0;
     return SafeArea(
       child:  Scaffold(
         
-    
+       body: views[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           selectedLabelStyle:GoogleFonts.anekGurmukhi() ,
           enableFeedback: true,
