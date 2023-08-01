@@ -18,7 +18,9 @@ class _HomeScreenViewState extends State<HomeScreenView> {
         floatingActionButton:currentIndex==0? 
         FloatingActionButton(
           splashColor: Colors.amber,
-          onPressed: (){},// Notes part
+          onPressed: (){
+            Navigator.pushNamed(context, 'createnoteView');
+          },// Notes part
           child: const Icon(Icons.add),):
           FloatingActionButton(
             onPressed: (){}, // tasks Part
