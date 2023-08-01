@@ -1,26 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class CreateNoteScreen extends StatefulWidget {
-  const CreateNoteScreen({super.key});
-
-  @override
-  State<CreateNoteScreen> createState() => _CreateNoteScreenState();
-}
-
-class _CreateNoteScreenState extends State<CreateNoteScreen> {
-TextEditingController titCont= TextEditingController();
-String? title;
+// ignore: must_be_immutable
+class CreateNote extends StatelessWidget {
+   CreateNote({super.key,required this.content,required this.title,required this.titCont,required this.contentCont});
+  TextEditingController titCont= TextEditingController();
+String title;
 TextEditingController contentCont= TextEditingController();
-String? content;
+String content;
 
-final GlobalKey<FormState> _globalKey = GlobalKey();
+ final GlobalKey<FormState> _globalKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child:  Scaffold(
-        body: Form(
+    return  Form(
           key: _globalKey,
           child: CustomScrollView(
             slivers: [
@@ -78,6 +71,9 @@ final GlobalKey<FormState> _globalKey = GlobalKey();
                       SizedBox(height: 25,),
                       ElevatedButton(
                         onPressed: (){
+                          if(_globalKey.currentState!.validate()){
+                            
+                          }
                           
                         },
                          style: ElevatedButton.styleFrom(
@@ -90,10 +86,6 @@ final GlobalKey<FormState> _globalKey = GlobalKey();
               )
             ],
           ),
-        ),
-    
-        
-      ),
     );
   }
 }

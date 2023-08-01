@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:iti_project/firebase_options.dart';
 import 'package:iti_project/screens/RegisterScreen/RegisterView.dart';
-import 'package:iti_project/screens/createNoteScreen/createNoteview.dart';
+import 'package:iti_project/screens/createNoteScreen/createNoteandTasksview.dart';
 import 'package:iti_project/screens/helloScreen/helloScreenView.dart';
 import 'package:iti_project/screens/homeScreen/homeScreenView.dart';
 import 'package:iti_project/screens/signinScreen/signInSreenView.dart';
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         'RegisterPageView':(context) =>  const RegisterView(),
         'SignInView':(context) => const SignInView(),
         'HomeScreenView':(context) => const HomeScreenView(),
-        'createnoteView':(context) => const CreateNoteScreen()
+        'createnoteView':(context) => const CreateNoteandTasksScreen()
       },
      theme: ThemeData(brightness: Brightness.dark,),
       initialRoute:'/' ,
