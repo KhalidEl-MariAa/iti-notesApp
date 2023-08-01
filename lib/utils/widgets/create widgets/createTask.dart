@@ -3,11 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 // ignore: must_be_immutable
 class CreateTask extends StatelessWidget {
-   CreateTask({super.key,required this.content,required this.title,required this.titCont,required this.contentCont});
+   CreateTask({super.key,});
   TextEditingController titCont= TextEditingController();
-String title;
+String? title;
 TextEditingController contentCont= TextEditingController();
-String content;
+String? content;
 
  final GlobalKey<FormState> _globalKey = GlobalKey();
 
