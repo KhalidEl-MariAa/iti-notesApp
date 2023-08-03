@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ignore: must_be_immutable
 class CustomNote extends StatelessWidget {
-  const CustomNote({super.key});
+   CustomNote({super.key,required this.title,required this.content});
+  String title;
+  String content;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +26,8 @@ class CustomNote extends StatelessWidget {
                   textColor: Colors.black,
                   iconColor: Colors.black,
                   subtitleTextStyle: GoogleFonts.anekGurmukhi().copyWith(),
-                  title: const Text('title'),
-                  subtitle: const Text('content'),
+                  title:  Text(title),
+                  subtitle: Text(content),
                   isThreeLine: true,
                   trailing: Column(
                     children: [GestureDetector(child:const  Icon(Icons.delete)),

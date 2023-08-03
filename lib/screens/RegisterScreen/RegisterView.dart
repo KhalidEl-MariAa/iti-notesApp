@@ -182,15 +182,14 @@ class _RegisterViewState extends State<RegisterView> {
                           
                         try {
                           await FirebaseAuth.instance.createUserWithEmailAndPassword(email:email! , password: password!);
-                            await FirebaseFirestore.instance.collection(FirebaseNames.collectionNamme).add(
-                              {
-                                FirebaseNames.emailfield:email,
+                            await FirebaseFirestore.instance.collection(FirebaseNames.collectionNamme).doc(email).set(
+                             { FirebaseNames.emailfield:email,
                                 FirebaseNames.passfiels:password,
                                 FirebaseNames.firstNameField:firstname,
-                                FirebaseNames.lastNameField:secondname
-                              });
+                                FirebaseNames.lastNameField:secondname}
+                            );
 
-                              Navigator.pushNamed(context, 'HomeScreenView');
+                              Navigator.pushNamed(context, 'HomeScreenView',arguments: email );
                         }
                         on FirebaseAuthException catch (ex){
                           if (ex.code=='weak-password') {

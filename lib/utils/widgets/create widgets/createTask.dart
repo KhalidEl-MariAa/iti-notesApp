@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:iti_project/utils/firebaseNames.dart';
 
 // ignore: must_be_immutable
 class CreateTask extends StatelessWidget {
@@ -70,11 +72,17 @@ String? content;
                       ),
                       SizedBox(height: 25,),
                       ElevatedButton(
-                        onPressed: (){
+                        onPressed: ()async {
                           if(_globalKey.currentState!.validate()){
-                            
-                          }
+                           await FirebaseFirestore.instance.collection(FirebaseNames.collectionNamme).doc(ModalRoute.of(context)!.settings.arguments as String).collection('Tasks').add({
+                           'title':title,
+                           'content':content
+
+
+                           });
+                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Your Task has been added succesfully')));
                           
+                        }
                         },
                          style: ElevatedButton.styleFrom(
                   fixedSize: const Size(250, 50),

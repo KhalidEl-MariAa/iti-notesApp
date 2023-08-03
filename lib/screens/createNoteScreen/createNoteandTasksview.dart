@@ -17,6 +17,7 @@ int currentIndex =0;
 List views=[CreateNote(),CreateTask()];
 
 
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

@@ -1,5 +1,10 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'package:iti_project/utils/widgets/getNotesView.dart';
+import 'package:iti_project/utils/widgets/getTasksView.dart';
 
 class HomeScreenView extends StatefulWidget {
   const HomeScreenView({super.key});
@@ -11,19 +16,25 @@ class HomeScreenView extends StatefulWidget {
 class _HomeScreenViewState extends State<HomeScreenView> {
   int currentIndex=0;
   
+ 
+  
   @override
   Widget build(BuildContext context) {
+    List views=[NotesView(argument: ModalRoute.of(context)!.settings.arguments as String),
+    TasksView(argument: ModalRoute.of(context)!.settings.arguments as String)];
     return SafeArea(
       child: Scaffold(
         floatingActionButton:currentIndex==0? 
         FloatingActionButton(
           splashColor: Colors.amber,
           onPressed: (){
-            Navigator.pushNamed(context, 'createnoteView');
+            Navigator.pushNamed(context, 'createnoteView',arguments: ModalRoute.of(context)!.settings.arguments as String);
           },// Notes part
           child: const Icon(Icons.add),):
           FloatingActionButton(
-            onPressed: (){}, // tasks Part
+            onPressed: (){
+              Navigator.pushNamed(context, 'createnoteView',arguments: ModalRoute.of(context)!.settings.arguments as String);
+            }, // tasks Part
             child: const Icon(Icons.add)
             ),
         appBar: AppBar(
@@ -41,7 +52,7 @@ class _HomeScreenViewState extends State<HomeScreenView> {
           }, icon:const Icon(Icons.person))],
         ),
        
-        
+        body:views[currentIndex] ,
         bottomNavigationBar: BottomNavigationBar(
           selectedLabelStyle:GoogleFonts.anekGurmukhi() ,
           enableFeedback: true,

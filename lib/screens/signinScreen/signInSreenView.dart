@@ -1,8 +1,10 @@
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
 
 class SignInView extends StatefulWidget {
   const SignInView({super.key});
@@ -132,7 +134,9 @@ Future<UserCredential> signInWithGoogle() async {
                       
                    try{
                      await FirebaseAuth.instance.signInWithEmailAndPassword(email:email! , password: password!);
-                     Navigator.pushNamed(context, 'HomeScreenView');
+                     
+                     Navigator.pushNamed(context, 'HomeScreenView',arguments: email);
+                     
                    }
                    on FirebaseAuthException catch (ex){
                       if (ex.code=='user-not-found') {
