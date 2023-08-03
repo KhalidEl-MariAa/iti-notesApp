@@ -25,6 +25,11 @@ class TasksView extends StatelessWidget {
             itemCount: snapshot.data!.docs.length,
             itemBuilder: (context, index) {
               return CustomNote(
+                ontap: () async{
+                     await FirebaseFirestore.instance.runTransaction((Transaction myTransaction) async {
+    await myTransaction.delete(snapshot.data?.docs[index].reference as DocumentReference<Object?>);
+});
+                },
                 title:snapshot.data!.docs[index]['title'] ,
                  content: snapshot.data!.docs[index]['content']);
             },);

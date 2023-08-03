@@ -3,6 +3,7 @@
 
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iti_project/utils/firebaseNames.dart';
@@ -12,7 +13,8 @@ import 'package:iti_project/utils/widgets/customNote.dart';
 class NotesView extends StatelessWidget {
    NotesView({super.key,required this.argument});
   String argument;
-
+  
+ 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -25,6 +27,12 @@ class NotesView extends StatelessWidget {
             itemCount: snapshot.data!.docs.length,
             itemBuilder: (context, index) {
               return CustomNote(
+                ontap: ()async {
+                await FirebaseFirestore.instance.runTransaction((Transaction myTransaction) async {
+    await myTransaction.delete(snapshot.data?.docs[index].reference as DocumentReference<Object?>);
+});
+                
+                },
                 title:snapshot.data!.docs[index]['title'] ,
                  content: snapshot.data!.docs[index]['content']);
             },);
