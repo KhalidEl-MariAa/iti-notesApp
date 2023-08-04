@@ -48,8 +48,9 @@ class _HomeScreenViewState extends State<HomeScreenView> {
             iconSize: 30,
     
             onPressed: () {
-            
-          }, icon:const Icon(Icons.person))],
+          Navigator.pushNamed(context,'ProfileScreenView',arguments: ModalRoute.of(context)!.settings.arguments);  
+          },
+           icon:const Icon(Icons.person))],
         ),
        
         body:views[currentIndex] ,
