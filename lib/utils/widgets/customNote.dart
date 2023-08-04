@@ -1,13 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // ignore: must_be_immutable
 class CustomNote extends StatefulWidget {
-   CustomNote({super.key,required this.title,required this.content,this.ontap});
+   CustomNote({super.key,required this.title,required this.content,this.ontap,required this.snapshot,required this.index});
   String title;
   String content;
   void Function()? ontap;
-  bool done = false;
+  
+  var snapshot;
+  var index;
 
   @override
   State<CustomNote> createState() => _CustomNoteState();
@@ -18,12 +21,9 @@ class _CustomNoteState extends State<CustomNote> {
   Widget build(BuildContext context) {
     return Padding(
           padding: const EdgeInsets.all(10),
-          child: AnimatedContainer(
-           
-           
-            duration: Duration(seconds: 3),
+          child: Container(
             decoration: BoxDecoration(
-              color: widget.done==true?Colors.green: Colors.amber,
+              color: Colors.amber,
               borderRadius: BorderRadius.circular(25)
             ),
             child: Column(
@@ -33,26 +33,27 @@ class _CustomNoteState extends State<CustomNote> {
                   textColor: Colors.black,
                   iconColor: Colors.black,
                   subtitleTextStyle: GoogleFonts.anekGurmukhi().copyWith(),
-                  title: widget.done==true?Text('Done..',style: GoogleFonts.anekGurmukhi().copyWith(fontSize: 30),) : Text(widget.title),
-                  subtitle: widget.done==true? Text(widget.title): Text(widget.content),
+                  title:  Text(widget.title),
+                  subtitle:  Text(widget.content),
                   isThreeLine: true,
                   trailing: Column(
-                    children: [GestureDetector(
+                    children: [
+                      GestureDetector(
                       onTap:widget.ontap ,
                       child:const  Icon(Icons.delete)),
                     const SizedBox(height: 5),
                     GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          widget.done=true;
-                        });
+                      onTap: () async {
+                        await FirebaseFirestore.instance.runTransaction((Transaction myTransaction) async {
+              await myTransaction.delete(widget.snapshot.data?.docs[widget.index].reference as DocumentReference<Object?>);
+          });
                       },
-                      child:widget.done==true?Text(''): const Icon(Icons.done))],
+                    child:  const Icon(Icons.done))],
                   ) ,
-        
+                  
                 )
               ],
-            )
+            ),
           ),
         );
   }

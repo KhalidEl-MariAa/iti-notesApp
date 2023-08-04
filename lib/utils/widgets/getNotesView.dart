@@ -14,6 +14,7 @@ class NotesView extends StatelessWidget {
    NotesView({super.key,required this.argument});
   String argument;
   
+  
  
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,8 @@ class NotesView extends StatelessWidget {
             itemCount: snapshot.data!.docs.length,
             itemBuilder: (context, index) {
               return CustomNote(
+              index: index,
+              snapshot: snapshot,
                 ontap: ()async {
                 await FirebaseFirestore.instance.runTransaction((Transaction myTransaction) async {
     await myTransaction.delete(snapshot.data?.docs[index].reference as DocumentReference<Object?>);
