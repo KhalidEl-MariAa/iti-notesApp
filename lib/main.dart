@@ -6,6 +6,7 @@ import 'package:iti_project/screens/RegisterScreen/RegisterView.dart';
 import 'package:iti_project/screens/createNoteScreen/createNoteandTasksview.dart';
 import 'package:iti_project/screens/helloScreen/helloScreenView.dart';
 import 'package:iti_project/screens/homeScreen/homeScreenView.dart';
+import 'package:iti_project/screens/profileScreen/profileScreenView.dart';
 import 'package:iti_project/screens/signinScreen/signInSreenView.dart';
 
 
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
         'RegisterPageView':(context) =>  const RegisterView(),
         'SignInView':(context) => const SignInView(),
         'HomeScreenView':(context) => const HomeScreenView(),
-        'createnoteView':(context) => const CreateNoteandTasksScreen()
+        'createnoteView':(context) => const CreateNoteandTasksScreen(),
+        'ProfileScreenView':(context) => const ProfileScreenView()
       },
      theme: ThemeData(brightness: Brightness.dark,),
       initialRoute:'/' ,
