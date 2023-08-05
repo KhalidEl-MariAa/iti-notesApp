@@ -189,7 +189,7 @@ class _RegisterViewState extends State<RegisterView> {
                                 FirebaseNames.lastNameField:secondname}
                             );
 
-                              Navigator.pushNamed(context, 'HomeScreenView',arguments: email );
+                              Navigator.pushNamed(context, 'AddProfilePicView',arguments: email );
                         }
                         on FirebaseAuthException catch (ex){
                           if (ex.code=='weak-password') {
