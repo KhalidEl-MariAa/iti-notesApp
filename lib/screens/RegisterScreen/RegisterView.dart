@@ -181,27 +181,10 @@ class _RegisterViewState extends State<RegisterView> {
                             
                           
                         try {
-                          await FirebaseAuth.instance.createUserWithEmailAndPassword(email:email! , password: password!);
-                            await FirebaseFirestore.instance.collection(FirebaseNames.collectionNamme).doc(email).set(
-                             { FirebaseNames.emailfield:email,
-                                FirebaseNames.passfiels:password,
-                                FirebaseNames.firstNameField:firstname,
-                                FirebaseNames.lastNameField:secondname}
-                            );
-
-                              Navigator.pushNamed(context, 'HomeScreenView',arguments: email );
+                          await registerbyFirebase(context);
                         }
                         on FirebaseAuthException catch (ex){
-                          if (ex.code=='weak-password') {
-                            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Weak password..Try stronger one ')));
-                            }
-                            else if (ex.code=='email-already-in-use') {
-                              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Email already used in another account..Try another one ')));
-                              
-                            }
-                            else{
-                              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('There is a problem with your input data')));
-                            }
+                          handleFirebaseWExceptionsRegistration(ex, context);
                   
                             
                             
@@ -238,5 +221,32 @@ class _RegisterViewState extends State<RegisterView> {
           ),
         ]),
       ));
+  }
+
+  void handleFirebaseWExceptionsRegistration(FirebaseAuthException ex, BuildContext context) {
+     if (ex.code=='weak-password') {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Weak password..Try stronger one ')));
+      }
+      else if (ex.code=='email-already-in-use') {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Email already used in another account..Try another one ')));
+        
+      }
+      else{
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('There is a problem with your input data')));
+      }
+                      
+      
+  }
+
+  Future<void> registerbyFirebase(BuildContext context) async {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(email:email! , password: password!);
+      await FirebaseFirestore.instance.collection(FirebaseNames.collectionNamme).doc(email).set(
+       { FirebaseNames.emailfield:email,
+          FirebaseNames.passfiels:password,
+          FirebaseNames.firstNameField:firstname,
+          FirebaseNames.lastNameField:secondname}
+      );
+    
+        Navigator.pushNamed(context, 'HomeScreenView',arguments: email );
   }
 }
