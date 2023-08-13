@@ -181,7 +181,7 @@ Future<UserCredential> signInWithGoogle() async {
                    
                    child: Row(
                      children: [
-                      const Image(image: AssetImage('lib/assets/images/google logo.png'),height: 40,width: 45,),
+                      const Image(image: AssetImage('lib/core/assets/images/google logo.png'),height: 40,width: 45,),
                       const  SizedBox(width: 6,),
                        Text('Connect with google',style: GoogleFonts.anekGurmukhi())
 
